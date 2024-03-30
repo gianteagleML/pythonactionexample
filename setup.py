@@ -17,6 +17,6 @@ setup(
     """,
     #install_requires=['click==7.1.2'],
     install_requires=install_requires,
-    version='0.0.1',
+    version='0.1.1',
     url='https://github.com/alfredodeza/python-cli-example',
 )
