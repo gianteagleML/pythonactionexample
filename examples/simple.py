@@ -1,3 +1,4 @@
+'''making good use of subprocess module to run commands and return the output'''
 import subprocess
 import shlex
 import json
@@ -5,6 +6,7 @@ import json
 
 # create a function that runs suprocess and returns the output
 def run_command(command):
+    '''this is the function that runs the command and returns the output'''
     cmd = shlex.split(command)
     output = subprocess.check_output(cmd)
     return output
@@ -24,7 +26,7 @@ def run_lsblk(device):
     ]
     }
     """
-    command = f'lsblk -J -o NAME,SIZE,TYPE,MOUNTPOINT'
+    command = 'lsblk -J -o NAME,SIZE,TYPE,MOUNTPOINT'
     output = run_command(command)
     devices = json.loads(output)['blockdevices']
     for parent in devices:
@@ -33,9 +35,11 @@ def run_lsblk(device):
         for child in parent.get('children', []):
             if child['name'] == device:
                 return child
+    return None
 
 
 def main(device):
+    '''this is the main function that runs the command and prints the output'''
     print(f"         '{run_lsblk(device)}'")
     print("-------------------------")
 
