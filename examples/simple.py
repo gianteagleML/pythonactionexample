@@ -37,6 +37,7 @@ def run_lsblk(device):
 
 def main(device):
     print(f"         '{run_lsblk(device)}'")
+    print("-------------------------")
 
 if __name__ == '__main__':
     import sys
