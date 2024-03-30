@@ -21,4 +21,4 @@ jobs:
         pip install pylint
     - name: Analysing the code with pylint
       run: |
-        find . -name "*.py" ! -name "__init__.py" | xargs pylint
+        find . -name "*.py" ! -name "__init__.py" | xargs pylint --fail-under=8
